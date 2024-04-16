@@ -713,7 +713,35 @@ var t, e;
 
 
 document.addEventListener("DOMContentLoaded", function() {
+	const menu = () => {
+	const btn = document.querySelector(".header__open-menu");
+	const btnClose = document.querySelectorAll(".close-menu");
+	const menuWrapp = document.querySelector(".header__menu");
+	const body = document.querySelector("body");
+	if (btn) {
+		if (menuWrapp) {
+			btn.addEventListener("click", () => {
+				menuWrapp.classList.add("--active");
+				body.classList.add("--stop");
+			});
 
+			btnClose.forEach((closeBtn) => {
+				closeBtn.addEventListener("click", () => {
+					menuWrapp.classList.remove("--active");
+					body.classList.remove("--stop");
+				});
+			});
+
+			window.addEventListener("resize", () => {
+				if (window.innerWidth > 740) {
+					body.classList.remove("--stop");
+				}
+			});
+		}
+	}
+};
+menu();
+;
 	function maskPhone() {
 	let inputs = document.querySelectorAll("input[type='tel']");
 	if (inputs) {
@@ -744,5 +772,32 @@ requestAnimationFrame(raf);
 	duration: 1150,
 	once: true,
 });
+;
+	const mainSwiper = () => {
+	const mainSwiperWrapp = document.querySelector(".main__swiper");
+	const installSwiper = {
+		// autoplay: {
+		// 	delay: 5000,
+		//   },
+		loop: true,
+		slidesPerView: 1,
+		spaceBetween: 10,
+		direction: "vertical",
+
+		pagination: {
+			el: ".main__swiper-pagination",
+			clickable: true,
+			renderBullet: function (index, className) {
+				return `<span class="main__pagination-bullet ${className}">
+					${index < 9 ? 0 : ""}${index + 1}
+					</span>`;
+			},
+		},
+	};
+	if (mainSwiperWrapp) {
+		const swiperMain = new Swiper(mainSwiperWrapp, installSwiper);
+	}
+};
+mainSwiper();
 ;
  });
