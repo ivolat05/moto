@@ -863,6 +863,41 @@ mainSwiper();
 };
 aboutSwiper();
 ;
+	// was swiper
+const wasSwiper = () => {
+	const wasSwiperWrapp = document.querySelector(".was__swiper");
+	const installSwiper = {
+		slidesPerView: 2,
+		spaceBetween: 80,
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 15,
+			},
+			735: {
+				slidesPerView: 2,
+				spaceBetween: 15,
+			},
+			992: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			1500: {
+				slidesPerView: 2,
+				spaceBetween: 60,
+			},
+			2000: {
+				slidesPerView: 2,
+				spaceBetween: 80,
+			},
+		},
+	};
+	if (wasSwiperWrapp) {
+		const swiperWas = new Swiper(wasSwiperWrapp, installSwiper);
+	}
+};
+wasSwiper();
+;
 	// отоброжения событий календаря
 // counter количество месяцев необходимых отоброжать кроме текущего
 
