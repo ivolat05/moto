@@ -863,4 +863,51 @@ mainSwiper();
 };
 aboutSwiper();
 ;
+	// отоброжения событий календаря
+// counter количество месяцев необходимых отоброжать кроме текущего
+
+let counter = 1;
+
+function showEventCalendar(visibleMonth) {
+	let currentDate = new Date();
+	let currentMotnh = currentDate.getMonth();
+	let endDate = new Date();
+	endDate.setMonth(endDate.getMonth() + visibleMonth);
+
+	const blocks = document.querySelectorAll(".calendar__container");
+	if (blocks) {
+		blocks.forEach(function (block) {
+			let blockDate = new Date(block.dataset.date);
+
+			if (blockDate >= currentMotnh && blockDate <= endDate) {
+				block.style.display = "block";
+			} else {
+				block.style.display = "none";
+			}
+		});
+		// скрытие кнопки если отоброжены все события
+		if (visibleMonth >= blocks.length) {
+			const btnEvent = document.querySelector(".calendar-btn");
+			if (btnEvent) {
+				btnEvent.style.display = "none";
+			}
+		}
+	}
+}
+
+showEventCalendar(counter);
+
+// добовление отоброжаемых событий
+
+function addEventCalendar(counterVisible) {
+	const btnEventAdd = document.querySelector(".calendar-btn");
+	let counter = counterVisible;
+	btnEventAdd.addEventListener("click", () => {
+		counter += 2;
+		showEventCalendar(counter);
+	});
+}
+addEventCalendar(counter);
+;
+
 });
