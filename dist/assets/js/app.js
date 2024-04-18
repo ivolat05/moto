@@ -898,6 +898,46 @@ const wasSwiper = () => {
 };
 wasSwiper();
 ;
+	// team swiper
+const teamSwiper = () => {
+	const teamSwiperWrapp = document.querySelector(".team__swiper");
+	const installSwiper = {
+		slidesPerView: 4,
+		spaceBetween: 85,
+
+		pagination: {
+			el: ".team__swiper-paggination",
+			clickable: true,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 15,
+			},
+			735: {
+				slidesPerView: 2,
+				spaceBetween: 15,
+			},
+			1100: {
+				slidesPerView: 3,
+				spaceBetween: 20,
+			},
+			1500: {
+				slidesPerView: 4,
+				spaceBetween: 65,
+			},
+			2000: {
+				slidesPerView: 4,
+				spaceBetween: 85,
+			},
+		},
+	};
+	if (teamSwiperWrapp) {
+		const swiperAbout = new Swiper(teamSwiperWrapp, installSwiper);
+	}
+};
+teamSwiper();
+;
 	// отоброжения событий календаря
 // counter количество месяцев необходимых отоброжать кроме текущего
 
@@ -950,5 +990,6 @@ function addEventCalendar(counterVisible) {
 }
 addEventCalendar(counter);
 ;
+
 
 });
