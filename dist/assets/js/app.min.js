@@ -755,18 +755,33 @@ menu();
 maskPhone();
 ;
 	gsap.registerPlugin(ScrollTrigger);
-const lenis = new Lenis({
-	duration: 1.2,
-	easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-});
 
-function raf(time) {
-	lenis.raf(time);
-	ScrollTrigger.update();
-	requestAnimationFrame(raf);
-}
+const scrollHorizontAnimate = () => {
+	const row = document.querySelector(".gallary__wrapp");
+	const triggers = document.querySelector(".gallary");
+	if (row) {
+		let widthRow = row.scrollWidth;
+		let stepWidthRow = widthRow - window.innerWidth;
 
-requestAnimationFrame(raf);
+		gsap.fromTo(
+			row,
+			{
+				x: 0,
+			},
+			{
+				scrollTrigger: {
+					trigger: triggers,
+					start: "bottom bottom",
+					scrub: true,
+					pin: true,
+					pinSpacer: true,
+				},
+				x: () => -stepWidthRow,
+			}
+		);
+	}
+};
+scrollHorizontAnimate();
 ;
 	AOS.init({
 	duration: 1150,
@@ -793,6 +808,15 @@ requestAnimationFrame(raf);
 					</span>`;
 			},
 		},
+		breakpoints: {
+			320: {
+				direction: "horizontal",
+			},
+
+			992: {
+				direction: "vertical",
+			},
+		},
 	};
 	if (mainSwiperWrapp) {
 		const swiperMain = new Swiper(mainSwiperWrapp, installSwiper);
@@ -800,4 +824,43 @@ requestAnimationFrame(raf);
 };
 mainSwiper();
 ;
- });
+ 	const aboutSwiper = () => {
+	const aboutSwiperWrapp = document.querySelector(".about__swiper");
+	const installSwiper = {
+		slidesPerView: 3,
+		spaceBetween: 40,
+
+		pagination: {
+			el: ".about__swiper-paggination",
+			clickable: true,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 15,
+			},
+			735: {
+				slidesPerView: 2,
+				spaceBetween: 15,
+			},
+			992: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			1300: {
+				slidesPerView: 3,
+				spaceBetween: 30,
+			},
+			2000: {
+				slidesPerView: 3,
+				spaceBetween: 40,
+			},
+		},
+	};
+	if (aboutSwiperWrapp) {
+		const swiperAbout = new Swiper(aboutSwiperWrapp, installSwiper);
+	}
+};
+aboutSwiper();
+;
+});
