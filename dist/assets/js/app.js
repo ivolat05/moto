@@ -869,12 +869,14 @@ aboutSwiper();
 let counter = 1;
 
 function showEventCalendar(visibleMonth) {
+	const blocks = document.querySelectorAll(".calendar__container");
 	let currentDate = new Date();
 	let currentMotnh = currentDate.getMonth();
 	let endDate = new Date();
-	endDate.setMonth(endDate.getMonth() + visibleMonth);
+	let aciveMonthNamber = endDate.getMonth() + visibleMonth;
 
-	const blocks = document.querySelectorAll(".calendar__container");
+	endDate.setMonth(aciveMonthNamber);
+
 	if (blocks) {
 		blocks.forEach(function (block) {
 			let blockDate = new Date(block.dataset.date);
@@ -883,6 +885,10 @@ function showEventCalendar(visibleMonth) {
 				block.style.display = "block";
 			} else {
 				block.style.display = "none";
+			}
+			// скрытие прошедщих месяцев
+			if (blockDate.getMonth() < currentMotnh) {
+				block.remove();
 			}
 		});
 		// скрытие кнопки если отоброжены все события
