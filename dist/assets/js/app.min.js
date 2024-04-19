@@ -950,12 +950,18 @@ teamSwiper();
 		breakpoints: {
 			320: {
 				slidesPerView: 1,
+				spaceBetween: 15,
 			},
 			735: {
 				slidesPerView: 2,
+				spaceBetween: 15,
 			},
 			900: {
 				slidesPerView: 3,
+				spaceBetween: 15,
+			},
+			1020: {
+				spaceBetween: 0,
 			},
 		},
 	};
