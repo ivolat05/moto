@@ -2819,6 +2819,14 @@ select {
 
 .header.--header-fixed {
   position: fixed;
+  -webkit-animation-name: show__header;
+          animation-name: show__header;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.header.--header-fixed .header__wrapp {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 1140px) {
   .header.--header-fixed .header__logo-white {
@@ -2848,6 +2856,27 @@ select {
   }
 }
 
+@-webkit-keyframes show__header {
+  0% {
+    opacity: 0;
+    top: -80px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes show__header {
+  0% {
+    opacity: 0;
+    top: -80px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
 .header__wrapp {
   display: -ms-grid;
   display: grid;

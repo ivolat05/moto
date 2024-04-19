@@ -1037,6 +1037,40 @@ function addEventCalendar(counterVisible) {
 }
 addEventCalendar(counter);
 ;
+	//fixed menu
+function fixedMenu() {
+	const header = document.querySelector(".header");
+	const main = document.querySelector("main");
 
-
+	if (header && main) {
+		const mainHeigth = main.offsetTop * 2 + 500;
+		window.addEventListener("scroll", () => {
+			let scrollDistance = window.scrollY;
+			if (scrollDistance > mainHeigth) {
+				header.classList.add("--header-fixed");
+			} else {
+				header.classList.remove("--header-fixed");
+			}
+		});
+	}
+}
+fixedMenu();
+;
+	const scrollToBlock = () => {
+	const btn = document.querySelectorAll(".scroll-btn");
+	if (btn) {
+		btn.forEach((item) => {
+			item.addEventListener("click", (e) => {
+				e.preventDefault();
+				let id = item.getAttribute("href").substring(1);
+				let block = document.getElementById(id);
+				let coordinaY =
+					block.getBoundingClientRect().top + window.pageYOffset - 30;
+				window.scrollTo({ top: coordinaY, behavior: "smooth" });
+			});
+		});
+	}
+};
+scrollToBlock();
+;
 });
