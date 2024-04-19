@@ -938,6 +938,47 @@ const teamSwiper = () => {
 };
 teamSwiper();
 ;
+	const newsSwiper = () => {
+	const newsSwiperWrapp = document.querySelector(".news__swiper");
+	const installSwiper = {
+		spaceBetween: 20,
+		slidesPerView: 3,
+		pagination: {
+			el: ".news-swiper-pagination",
+			type: "bullets",
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+			},
+			735: {
+				slidesPerView: 2,
+			},
+			900: {
+				slidesPerView: 3,
+			},
+		},
+	};
+	if (newsSwiperWrapp) {
+		const swiperNews = new Swiper(newsSwiperWrapp, installSwiper);
+		// активация деактивация слайдера  при различных разрешения экрана
+		if (window.innerWidth <= 1020) {
+			swiperNews.enable();
+		} else {
+			swiperNews.disable();
+		}
+		swiperNews.update();
+		window.addEventListener("resize", () => {
+			if (window.innerWidth <= 1020) {
+				swiperNews.enable();
+			} else {
+				swiperNews.disable();
+			}
+		});
+	}
+};
+newsSwiper();
+;
 	// отоброжения событий календаря
 // counter количество месяцев необходимых отоброжать кроме текущего
 
