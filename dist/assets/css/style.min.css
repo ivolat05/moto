@@ -2719,12 +2719,12 @@ select {
 }
 @media (max-width: 2410px) {
   .btn-bord::after {
-    width: calc(100% - 80px);
+    width: calc(100% - 160px);
   }
 }
 @media (max-width: 992px) {
   .btn-bord::after {
-    width: calc(100% - 50px);
+    width: calc(100% - 100px);
   }
 }
 .btn-bord::before {
@@ -2745,12 +2745,12 @@ select {
 }
 @media (max-width: 2410px) {
   .btn-bord::before {
-    height: calc(100% - 80px);
+    height: calc(100% - 160px);
   }
 }
 @media (max-width: 992px) {
   .btn-bord::before {
-    height: calc(100% - 50px);
+    height: calc(100% - 100px);
   }
 }
 @media (hover: hover) {
@@ -3269,7 +3269,7 @@ select {
     left: 0;
     top: 0;
     background: #E51F34;
-    padding: 20px 20px 60px 25px;
+    padding: 20px 20px 90px 25px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3364,6 +3364,13 @@ select {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+}
+
+@media (max-width: 992px) {
+  .header--container {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -4020,12 +4027,18 @@ select {
   overflow: hidden;
   background: url("../../assets/img/kit/bak.jpg") no-repeat center center/cover;
   padding: 175px 30px;
+  font-family: "Unbounded";
   font-weight: 700;
   font-size: 92px;
   line-height: 114px;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
+}
+@media (max-width: 2400px) {
+  .kit__body {
+    font-size: 3.6vw;
+  }
 }
 @media (max-width: 2000px) {
   .kit__body {
@@ -4036,7 +4049,13 @@ select {
     line-height: 86px;
   }
 }
-@media (max-width: 992px) {
+@media (max-width: 1780px) {
+  .kit__body {
+    font-size: 3.6vw;
+    line-height: 120%;
+  }
+}
+@media (max-width: 672px) {
   .kit__body {
     margin-top: 30px;
     font-size: 24px;
@@ -4204,6 +4223,15 @@ select {
   margin-bottom: 0;
 }
 
+.kit__head-title .kit__head-title--span {
+  color: #000;
+}
+@media (max-width: 992px) {
+  .kit__head-title .kit__head-title--span {
+    display: block;
+  }
+}
+
 .gallary__wrapp {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4357,7 +4385,11 @@ body {
 }
 @media (max-width: 572px) {
   .tours__box {
-    width: 100%;
+    width: calc(100% - 20px);
+    margin-left: 20px;
+  }
+  .tours__box:nth-last-child(1) {
+    margin-left: 20px;
   }
 }
 
@@ -4436,7 +4468,6 @@ body {
 @media (max-width: 992px) {
   .tours__row {
     margin-top: 30px;
-    gap: 20px;
   }
 }
 @media (max-width: 770px) {
@@ -4489,6 +4520,21 @@ body {
 @media (max-width: 1600px) {
   .tours__cart-link {
     aspect-ratio: 7/8;
+  }
+}
+@media (max-width: 992px) {
+  .tours__cart-link {
+    border-radius: 26px;
+  }
+}
+@media (max-width: 992px) {
+  .tours__cart-link::after {
+    width: calc(100% - 105px);
+  }
+}
+@media (max-width: 992px) {
+  .tours__cart-link::before {
+    height: calc(100% - 95px);
   }
 }
 @media (max-width: 770px) {
@@ -5624,6 +5670,21 @@ body {
     margin-top: 30px;
   }
 }
+@media (max-width: 992px) {
+  .was__link {
+    border-radius: 26px;
+  }
+}
+@media (max-width: 992px) {
+  .was__link::after {
+    width: calc(100% - 105px);
+  }
+}
+@media (max-width: 992px) {
+  .was__link::before {
+    height: calc(100% - 95px);
+  }
+}
 
 .was__link-wrapp {
   max-width: 540px;
@@ -6094,7 +6155,7 @@ body {
 }
 @media (max-width: 992px) {
   .from-wrapp::after {
-    width: calc(100% - 50px);
+    width: calc(100% - 105px);
   }
 }
 .from-wrapp::before {
@@ -6120,7 +6181,7 @@ body {
 }
 @media (max-width: 992px) {
   .from-wrapp::before {
-    height: calc(100% - 50px);
+    height: calc(100% - 95px);
   }
 }
 @media (max-width: 2000px) {
@@ -6131,7 +6192,8 @@ body {
 }
 @media (max-width: 992px) {
   .from-wrapp {
-    border-radius: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -6477,9 +6539,21 @@ body {
     grid-template-columns: 100%;
   }
 }
+@media (max-width: 992px) {
+  .form-row {
+    padding-top: 20px;
+  }
+}
 @media (max-width: 500px) {
   .form-row {
     width: 100%;
+  }
+}
+
+@media (max-width: 572px) {
+  .form--container {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 

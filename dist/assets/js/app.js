@@ -759,10 +759,10 @@ maskPhone();
 
 const scrollHorizontAnimate = () => {
 	const row = document.querySelector(".gallary__wrapp");
-	const triggers = document.querySelector(".gallary");
+	const triggers = document.querySelector(".gallary-start-anim");
 	if (row) {
-		let widthRow = row.scrollWidth;
-		let stepWidthRow = widthRow - window.innerWidth;
+		const widthRow = row.scrollWidth;
+		const stepWidthRow = widthRow - window.innerWidth;
 
 		gsap.fromTo(
 			row,
@@ -771,7 +771,7 @@ const scrollHorizontAnimate = () => {
 			},
 			{
 				scrollTrigger: {
-					trigger: ".t",
+					trigger: triggers,
 					start: "top top",
 					end: `+=${stepWidthRow * 2}`,
 					scrub: true,
@@ -793,9 +793,9 @@ scrollHorizontAnimate();
 	const mainSwiper = () => {
 	const mainSwiperWrapp = document.querySelector(".main__swiper");
 	const installSwiper = {
-		// autoplay: {
-		// 	delay: 5000,
-		//   },
+		autoplay: {
+			delay: 5000,
+		},
 		loop: true,
 		slidesPerView: 1,
 		spaceBetween: 10,
