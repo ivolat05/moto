@@ -6150,7 +6150,7 @@ body {
 }
 @media (max-width: 2410px) {
   .from-wrapp::after {
-    width: calc(100% - 80px);
+    width: calc(100% - 160px);
   }
 }
 @media (max-width: 992px) {
@@ -6176,7 +6176,7 @@ body {
 }
 @media (max-width: 2410px) {
   .from-wrapp::before {
-    height: calc(100% - 80px);
+    height: calc(100% - 160px);
   }
 }
 @media (max-width: 992px) {
