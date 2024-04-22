@@ -3604,11 +3604,6 @@ select {
   display: contents;
 }
 
-.gallary__wrapp,
-html {
-  scroll-behavior: smooth;
-}
-
 .place__wrapp {
   display: -ms-grid;
   display: grid;
@@ -4213,6 +4208,12 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  scroll-behavior: slow;
+}
+
+html,
+body {
+  scroll-behavior: slow;
 }
 
 .gallary__img {

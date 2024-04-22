@@ -764,17 +764,23 @@ const scrollHorizontAnimate = () => {
 		let widthRow = row.scrollWidth;
 		let stepWidthRow = widthRow - window.innerWidth;
 
-		gsap.to(row, {
-			scrollTrigger: {
-				trigger: triggers,
-				start: "bottom bottom",
-				scrub: true,
-				pin: true,
-				pinSpacer: false,
+		gsap.fromTo(
+			row,
+			{
+				x: 0,
 			},
-			x: () => -stepWidthRow,
-			ease: "none",
-		});
+			{
+				scrollTrigger: {
+					trigger: ".t",
+					start: "top top",
+					end: `+=${stepWidthRow * 2}`,
+					scrub: true,
+					pin: true,
+					pinSpacer: true,
+				},
+				x: -stepWidthRow,
+			}
+		);
 	}
 };
 scrollHorizontAnimate();
